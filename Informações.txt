@@ -1,0 +1,18 @@
+# Criar Pasta onde ficarão os scripts
+mkdir -p /opt/scripts
+
+# Criar local onde ficarão os arquivos de log
+mkdir -p /var/log/unifi
+
+#Acessar a crontab
+crontab -e
+
+# Colocar a seguinte linha na crontab (irá reiniciar as antenas às 23 horas)
+* 23 * * * /opt/scripts/unifi.sh > /dev/null
+
+# Instalar a Biblioteca Paramiko para o Python
+pip install paramiko
+
+# Depois de criado os arquivos unifi.sh e unifi.py é necessário 
+# dar permissão de execução no arquivo unifi.sh
+chmod +x /opt/scripts/unifi.sh
